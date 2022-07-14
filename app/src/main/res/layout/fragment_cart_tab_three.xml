@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/yellow"
     tools:context=".tab_fragments.CartTabThreeFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -11,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="@string/tab_title_Beauty" />
+        android:text="@string/tab_title_Shoes" />
 
 
 </FrameLayout>

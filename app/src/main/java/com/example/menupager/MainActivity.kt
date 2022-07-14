@@ -7,24 +7,25 @@ import com.example.menupager.menu_fragments.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var bottomNavView : BottomNavigationView
+     private lateinit var bottomNavView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val actionBar = supportActionBar
+        actionBar?.hide()
         initView()
         initListeners()
         setFragmentToContainer(HomeFragment())
     }
 
-
-    private fun initView(){
+    private fun initView() {
         bottomNavView = findViewById(R.id.bottom_navigation)
     }
 
-    private fun initListeners(){
-        bottomNavView.setOnItemSelectedListener{
-            when(it.itemId){
+    private fun initListeners() {
+        bottomNavView.setOnItemSelectedListener {
+            when (it.itemId) {
                 R.id.btn_home -> setFragmentToContainer(HomeFragment())
                 R.id.btn_cart -> setFragmentToContainer(CartFragment())
                 R.id.btn_search -> setFragmentToContainer(SearchFragment())
@@ -35,11 +36,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setFragmentToContainer(fragment: Fragment):Boolean {
+     private fun setFragmentToContainer(fragment: Fragment): Boolean {
         if (supportFragmentManager.fragments.contains(fragment)) {
-            supportFragmentManager.beginTransaction().attach(fragment)
+            supportFragmentManager.beginTransaction().attach(fragment).commit()
         } else {
-            supportFragmentManager.beginTransaction().add(R.id.container, fragment).commit()
+            supportFragmentManager.beginTransaction().add(R.id.container,fragment).commit()
         }
         return true
     }

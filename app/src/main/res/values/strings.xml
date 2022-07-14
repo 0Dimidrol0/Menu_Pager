@@ -15,4 +15,5 @@
     <string name="tab_title_Apparel">Apparel</string>
     <string name="tab_title_Beauty">Beauty</string>
     <string name="tab_title_Shoes">Shoes</string>
+    <string name="go_back_title">Go Back</string>
 </resources>

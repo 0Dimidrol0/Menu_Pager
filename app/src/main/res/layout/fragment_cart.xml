@@ -7,11 +7,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".menu_fragments.CartFragment">
 
+    <include layout="@layout/toolbar_for_cart"
+        android:id="@+id/cart_toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tl_cart"
+        app:tabSelectedTextColor="@color/yellow"
+        app:tabTextColor="@color/black"
+        app:tabIconTint="@color/black"
+        app:tabIndicatorColor="@color/yellow"
+        app:tabIndicatorAnimationDuration="@integer/material_motion_duration_short_1"
         android:layout_width="0dp"
+        app:tabInlineLabel="true"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cart_toolbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         />

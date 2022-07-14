@@ -1,10 +1,11 @@
 package com.example.menupager.menu_fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.getColor
+import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.menupager.R
@@ -20,6 +21,7 @@ class CartFragment : Fragment() {
     private lateinit var pager: ViewPager2
     private var cartFragmentList = ArrayList<Fragment>()
     private lateinit var pagerAdapter: SectionAdapter
+    private  lateinit var backButton : ImageButton
 
 
     override fun onCreateView(
@@ -34,9 +36,18 @@ class CartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initView()
+        initListeners()
         setList()
         initPager()
         initTabLayout()
+    }
+
+    private fun initListeners() {
+        backButton.setOnClickListener{
+            requireActivity(). supportFragmentManager.beginTransaction().replace(R.id.container,HomeFragment()).commit()
+            Log.d("tag","onClick: BAck")
+
+        }
     }
 
     private fun initTabLayout() {
@@ -45,17 +56,14 @@ class CartFragment : Fragment() {
                 0 -> {
                     tab.text = getString(R.string.tab_title_Apparel)
                     tab.setIcon(R.drawable.ic_apparel)
-                    tab.icon?.setTint(getColor(requireContext(), R.color.black))
                 }
                 1 -> {
                     tab.text = getString(R.string.tab_title_Beauty)
                     tab.setIcon(R.drawable.ic_beauty)
-                    tab.icon?.setTint(getColor(requireContext(), R.color.black))
                 }
                 2 -> {
                     tab.text = getString(R.string.tab_title_Shoes)
                     tab.setIcon(R.drawable.ic_shoes)
-                    tab.icon?.setTint(getColor(requireContext(), R.color.black))
                 }
             }
         }.attach()
@@ -75,6 +83,7 @@ class CartFragment : Fragment() {
     private fun initView() {
         tabLayout = requireView().findViewById(R.id.tl_cart)
         pager = requireView().findViewById(R.id.view_pager)
+        backButton = requireView().findViewById(R.id.btn_back)
     }
 
 
