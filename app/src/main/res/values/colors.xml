@@ -11,5 +11,6 @@
     <color name="blue">#0033FF</color>
     <color name="red">#FF0000</color>
     <color name="green">#00FF00</color>
-
+    <color name="blue_25">#3C3CE3</color>
+    <color name="blue_16">#015791</color>
 </resources>
