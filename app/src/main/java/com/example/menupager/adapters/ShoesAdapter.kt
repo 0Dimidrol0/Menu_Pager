@@ -1,5 +1,7 @@
 package com.example.menupager.adapters
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,48 +14,93 @@ import com.example.menupager.Res.Shoes
 
 class ShoesAdapter(
     var itemList: ArrayList<Shoes>,
-) : RecyclerView.Adapter<ShoesAdapter.ShoesViewHolder>() {
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    var selectedPosition = -1
+    var onItemClickListener: OnItemClickListener? = null
 
-    class ShoesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val name: AppCompatTextView
-        val price: AppCompatTextView
-        val image: AppCompatImageView
-        private var isClicked: Boolean
+    override fun getItemViewType(position: Int): Int {
+        return itemList[position].type
+    }
 
-        init {
-            name = itemView.findViewById(R.id.tv_name)
-            price = itemView.findViewById(R.id.tv_price)
-            image = itemView.findViewById(R.id.iv_shoes)
-            isClicked = false
-            itemView.setOnClickListener {
-                if (isClicked) {
-                    isClicked = false
-                    itemView.setBackgroundColor(itemView.context.resources.getColor(R.color.white))
-                } else {
-                    isClicked = true
-                    itemView.setBackgroundColor(itemView.context.resources.getColor(R.color.yellow))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        return if (viewType == 0) {
+            val itemView =
+                LayoutInflater.from(parent.context)
+                    .inflate(R.layout.item_shoes_revers, parent, false)
+            ShoesViewHolder(itemView)
+        } else {
+            val itemView =
+                LayoutInflater.from(parent.context)
+                    .inflate(R.layout.item_list_model, parent, false)
+            ShoesReverseViewHolder(itemView)
+        }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        var shoe = itemList[position]
+        holder.apply {
+            if (selectedPosition == position) {
+                itemView.setBackgroundColor(Color.RED)
+            } else {
+                itemView.setBackgroundColor(Color.WHITE)
+            }
+            when (this) {
+                is ShoesViewHolder -> {
+                    name.text = shoe.name
+                    price.text = shoe.price
+                    Glide.with(itemView.context).load(shoe.image).into(image)
+                    itemView.setOnClickListener {
+                        selectedPosition = position
+                        notifyDataSetChanged()
+                        onItemClickListener?.onItemClick(shoe)
+                    }
+                }
+                is ShoesReverseViewHolder -> {
+                    nameReverse.text = shoe.name
+                    priceReverse.text = shoe.price
+                    Glide.with(itemView.context).load(shoe.image).into(imageReverse)
+                    itemView.setOnClickListener {
+                        selectedPosition = position
+                        notifyDataSetChanged()
+                        onItemClickListener?.onItemClick(shoe)
+                    }
                 }
             }
-        }
-
-
-    }
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShoesViewHolder {
-        val itemView =
-            LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_list_model, parent, false)
-        return ShoesViewHolder(itemView)
-    }
-
-    override fun onBindViewHolder(holder: ShoesViewHolder, position: Int) {
-        holder.apply {
-            name.text = itemList[position].name
-            price.text = itemList[position].price
-            Glide.with(itemView.context).load(itemList[position].image).into(image)
         }
     }
 
     override fun getItemCount(): Int = itemList.size
 
+    fun setListener(onItemClickListener: OnItemClickListener) {
+        this.onItemClickListener = onItemClickListener
+    }
+
+    interface OnItemClickListener {
+        fun onItemClick(shoes: Shoes)
+    }
+
+    inner class ShoesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val name: AppCompatTextView
+        val price: AppCompatTextView
+        val image: AppCompatImageView
+
+        init {
+            name = itemView.findViewById(R.id.tv_nameReverse)
+            price = itemView.findViewById(R.id.tv_priceReverse)
+            image = itemView.findViewById(R.id.iv_shoesReverse)
+        }
+    }
+
+    inner class ShoesReverseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val nameReverse: AppCompatTextView
+        val priceReverse: AppCompatTextView
+        val imageReverse: AppCompatImageView
+
+        init {
+            nameReverse = itemView.findViewById(R.id.tv_nameReverse)
+            priceReverse = itemView.findViewById(R.id.tv_priceReverse)
+            imageReverse = itemView.findViewById(R.id.iv_shoesReverse)
+        }
+    }
 }
