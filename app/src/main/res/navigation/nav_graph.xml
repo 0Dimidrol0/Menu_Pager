@@ -34,4 +34,19 @@
         android:name="com.example.menupager.menu_fragments.SearchFragment"
         android:label="Search"
         tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/myNetworks"
+        android:name="com.example.menupager.drawable_fragments.WiFiListFragment"
+        android:label="fragment_wi_fi_list"
+        tools:layout="@layout/fragment_wi_fi_list" />
+    <fragment
+        android:id="@+id/wiFiOnMap"
+        android:name="com.example.menupager.drawable_fragments.WiFiOnMapFragment"
+        android:label="fragment_wi_fi_on_map"
+        tools:layout="@layout/fragment_wi_fi_on_map" />
+    <fragment
+        android:id="@+id/dataUsage"
+        android:name="com.example.menupager.drawable_fragments.DataUsageFragment"
+        android:label="fragment_data_usage"
+        tools:layout="@layout/fragment_data_usage" />
 </navigation>

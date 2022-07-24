@@ -45,9 +45,9 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
     }
 
     private fun initListeners() {
-        binding.cartToolbar.btnBack.setOnClickListener {
-            navController.navigate(R.id.action_cartFragment_to_homeFragment)
-        }
+//        binding.cartToolbar.btnBack.setOnClickListener {
+//            navController.navigate(R.id.action_cartFragment_to_homeFragment)
+//        }
     }
 
     private fun initTabLayout() {

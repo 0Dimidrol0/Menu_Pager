@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list_model_root"
+    android:background="@color/white"
+    android:layout_marginBottom="@dimen/dimen_10"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_shoes"
+        android:layout_width="@dimen/dimen_100"
+        android:layout_height="@dimen/dimen_100"
+        android:layout_margin="@dimen/dimen_10"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:background="@mipmap/ic_launcher"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Example text..."
+        app:layout_constraintTop_toTopOf="@id/iv_shoes"
+        app:layout_constraintStart_toEndOf="@id/iv_shoes"
+        android:layout_marginStart="@dimen/dimen_10"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="example price..."
+        app:layout_constraintStart_toEndOf="@id/iv_shoes"
+        android:layout_marginStart="@dimen/dimen_10"
+        app:layout_constraintBottom_toBottomOf="@id/iv_shoes"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

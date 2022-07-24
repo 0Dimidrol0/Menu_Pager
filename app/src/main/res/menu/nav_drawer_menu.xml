@@ -3,15 +3,15 @@
     <item android:title="">
         <menu>
             <item
-                android:id="@+id/my_networks"
+                android:id="@id/myNetworks"
                 android:title="@string/my_network_title"
                 android:icon="@drawable/ic_my_network"/>
             <item
-                android:id="@+id/wifi_on_map"
+                android:id="@id/wiFiOnMap"
                 android:title="@string/wifi_on_map_title"
                 android:icon="@drawable/ic_wifi_on_map"/>
             <item
-                android:id="@+id/data_usage"
+                android:id="@id/dataUsage"
                 android:title="@string/data_usage_title"
                 android:icon="@drawable/ic_data_usage"/>
         </menu>
