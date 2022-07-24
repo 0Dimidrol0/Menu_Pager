@@ -11,13 +11,31 @@ import com.example.menupager.R
 import com.example.menupager.Res.Shoes
 
 class ShoesAdapter(
-     var itemList: ArrayList<Shoes>,
+    var itemList: ArrayList<Shoes>,
 ) : RecyclerView.Adapter<ShoesAdapter.ShoesViewHolder>() {
 
     class ShoesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val name: AppCompatTextView = itemView.findViewById(R.id.tv_name)
-        val price: AppCompatTextView = itemView.findViewById(R.id.tv_price)
-        val image: AppCompatImageView = itemView.findViewById(R.id.iv_shoes)
+        val name: AppCompatTextView
+        val price: AppCompatTextView
+        val image: AppCompatImageView
+        private var isClicked: Boolean
+
+        init {
+            name = itemView.findViewById(R.id.tv_name)
+            price = itemView.findViewById(R.id.tv_price)
+            image = itemView.findViewById(R.id.iv_shoes)
+            isClicked = false
+            itemView.setOnClickListener {
+                if (isClicked) {
+                    isClicked = false
+                    itemView.setBackgroundColor(itemView.context.resources.getColor(R.color.white))
+                } else {
+                    isClicked = true
+                    itemView.setBackgroundColor(itemView.context.resources.getColor(R.color.yellow))
+                }
+            }
+        }
+
 
     }
 
