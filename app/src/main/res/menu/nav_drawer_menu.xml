@@ -3,8 +3,8 @@
     <item android:title="">
         <menu>
             <item
-                android:id="@id/myNetworks"
-                android:title="@string/my_network_title"
+                android:id="@id/shoes_list"
+                android:title="@string/Shoes_list_title"
                 android:icon="@drawable/ic_my_network"/>
             <item
                 android:id="@id/wiFiOnMap"

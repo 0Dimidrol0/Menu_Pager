@@ -35,18 +35,37 @@
         android:label="Search"
         tools:layout="@layout/fragment_search" />
     <fragment
-        android:id="@+id/myNetworks"
-        android:name="com.example.menupager.drawable_fragments.WiFiListFragment"
-        android:label="fragment_wi_fi_list"
-        tools:layout="@layout/fragment_wi_fi_list" />
+        android:id="@+id/shoes_list"
+        android:name="com.example.menupager.drawable_fragments.ShoesListFragment"
+        android:label="@string/Shoes_list_title"
+        tools:layout="@layout/fragment_shoes_list" >
+        <action
+            android:id="@+id/action_shoes_list_to_ItemFragment"
+            app:destination="@id/ItemFragment" />
+    </fragment>
     <fragment
         android:id="@+id/wiFiOnMap"
         android:name="com.example.menupager.drawable_fragments.WiFiOnMapFragment"
-        android:label="fragment_wi_fi_on_map"
+        android:label="@string/WiFi_Map_title"
         tools:layout="@layout/fragment_wi_fi_on_map" />
     <fragment
         android:id="@+id/dataUsage"
         android:name="com.example.menupager.drawable_fragments.DataUsageFragment"
-        android:label="fragment_data_usage"
+        android:label="@string/Data_usage_title"
         tools:layout="@layout/fragment_data_usage" />
+    <fragment
+        android:id="@+id/ItemFragment"
+        android:name="com.example.menupager.drawable_fragments.ItemFragment"
+        android:label="fragment_custom_dialog"
+        tools:layout="@layout/fragment_item" >
+        <argument
+            android:name="item_name"
+            app:argType="string" />
+        <argument
+            android:name="item_Price"
+            app:argType="string" />
+        <argument
+            android:name="item_image_Url"
+            app:argType="string" />
+    </fragment>
 </navigation>

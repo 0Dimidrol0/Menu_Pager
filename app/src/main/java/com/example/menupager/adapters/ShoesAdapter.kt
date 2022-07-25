@@ -23,22 +23,23 @@ class ShoesAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return if (viewType == 0) {
+        return if (viewType == 1) {
             val itemView =
                 LayoutInflater.from(parent.context)
                     .inflate(R.layout.item_shoes_revers, parent, false)
-            ShoesViewHolder(itemView)
+            ShoesReverseViewHolder(itemView)
         } else {
             val itemView =
                 LayoutInflater.from(parent.context)
-                    .inflate(R.layout.item_list_model, parent, false)
-            ShoesReverseViewHolder(itemView)
+                    .inflate(R.layout.item_shoes_model, parent, false)
+            ShoesViewHolder(itemView)
         }
     }
 
+
     @SuppressLint("NotifyDataSetChanged")
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        var shoe = itemList[position]
+        val shoe = itemList[position]
         holder.apply {
             if (selectedPosition == position) {
                 itemView.setBackgroundColor(Color.RED)
@@ -86,9 +87,9 @@ class ShoesAdapter(
         val image: AppCompatImageView
 
         init {
-            name = itemView.findViewById(R.id.tv_nameReverse)
-            price = itemView.findViewById(R.id.tv_priceReverse)
-            image = itemView.findViewById(R.id.iv_shoesReverse)
+            name = itemView.findViewById(R.id.tv_name)
+            price = itemView.findViewById(R.id.tv_price)
+            image = itemView.findViewById(R.id.iv_shoes)
         }
     }
 

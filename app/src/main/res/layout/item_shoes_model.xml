@@ -3,39 +3,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/list_model_root"
-    android:background="@color/white"
-    android:layout_marginBottom="@dimen/dimen_10"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dimen_10"
+    android:background="@color/white">
 
-    // TODO rename
-     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/iv_shoesReverse"
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_shoes"
         android:layout_width="@dimen/dimen_100"
         android:layout_height="@dimen/dimen_100"
         android:layout_margin="@dimen/dimen_10"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:background="@mipmap/ic_launcher"/>
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@mipmap/ic_launcher" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_nameReverse"
+        android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Example text..."
-        app:layout_constraintTop_toTopOf="@id/iv_shoesReverse"
-        app:layout_constraintStart_toEndOf="@id/iv_shoesReverse"
-        android:layout_marginStart="@dimen/dimen_10"/>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_priceReverse"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="example price..."
-        app:layout_constraintStart_toEndOf="@id/iv_shoesReverse"
         android:layout_marginStart="@dimen/dimen_10"
-        app:layout_constraintBottom_toBottomOf="@id/iv_shoesReverse"/>
+        app:layout_constraintStart_toEndOf="@id/iv_shoes"
+        app:layout_constraintTop_toTopOf="@id/iv_shoes"
+        tools:text="Example text..." />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_10"
+        app:layout_constraintBottom_toBottomOf="@id/iv_shoes"
+        app:layout_constraintStart_toEndOf="@id/iv_shoes"
+        tools:text="example price..." />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

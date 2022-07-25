@@ -21,4 +21,8 @@
     <string name="add_network_title">Add Network</string>
     <string name="username_title">Android Kotlin\'s</string>
     <string name="email_title">androidByKotlin@Java.com</string>
+    <string name="Data_usage_title">Data usage</string>
+    <string name="WiFi_Map_title">WiFi Map</string>
+    <string name="Shoes_list_title">Shoes list</string>
+    <string name="item_about">THIS. FOR THE LONG, SLOW RUN. The distance running shoe inspired by the idea of perpetual motion and tested over 4,500 km. Adistar combines a soft, lightweight REPETITOR foam platform with REPETITOR +, a firmer foam, to create a dual density midsole. The firmer 15% recycled EVA in the heel protects and helps stabilize any heel strike. Forward propulsion is enhanced by the rocker geometry as well as an overall 6mm drop heel to toe. Strike soft and push forward with a shoe designed to go the distance.</string>
 </resources>
